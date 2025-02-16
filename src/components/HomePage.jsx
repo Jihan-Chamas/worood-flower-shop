@@ -1,15 +1,14 @@
 import React from "react";
 import "./styling.css";
 
-function HomePage(){
+function HomePage() {
   return (
     <div className="container">
-     
+
       <header className="hero">
-      <img src='./src/images/sakura.gif' />
+        <img src="./src/images/sakura.gif" />
         <h1>Welcome to Worod Flower Shop</h1>
         <p>Fresh flowers for every occasion</p>
-     
       </header>
 
       <section className="featured">
@@ -28,7 +27,10 @@ function HomePage(){
             <button className="shop-btn">Buy now</button>
           </div>
           <div className="flower-card">
-            <img src="./src/images/sunflower-roses.webp" alt="Sunflower Charm" />
+            <img
+              src="./src/images/sunflower-roses.webp"
+              alt="Sunflower Charm"
+            />
             <h3>Sunflower Charm</h3>
             <p>$22.99</p>
             <button className="shop-btn">Buy now</button>
@@ -52,7 +54,7 @@ function HomePage(){
             <button className="shop-btn">Buy now</button>
           </div>
           <div className="flower-card">
-            <img src="./src/images/lilis-roses.webp" alt="Lilis flower"/>
+            <img src="./src/images/lilis-roses.webp" alt="Lilis flower" />
             <h3>Lili Dream</h3>
             <p>$26.99</p>
             <button className="shop-btn">Buy now</button>
@@ -64,13 +66,19 @@ function HomePage(){
             <button className="shop-btn">Buy now</button>
           </div>
           <div className="flower-card">
-            <img src="./src/images/orangeblossom-honey.jpeg" alt="Orangeblossom Honey" />
+            <img
+              src="./src/images/orangeblossom-honey.jpeg"
+              alt="Orangeblossom Honey"
+            />
             <h3>Orangeblossom Honey</h3>
             <p>$21.99</p>
             <button className="shop-btn">Buy now</button>
           </div>
           <div className="flower-card">
-            <img src="./src/images/wildflowers-honey.webp" alt="Wild Flowers Honey" />
+            <img
+              src="./src/images/wildflowers-honey.webp"
+              alt="Wild Flowers Honey"
+            />
             <h3>Wild Roses Honey</h3>
             <p>$27.99</p>
             <button className="shop-btn">Buy now</button>
@@ -79,6 +87,6 @@ function HomePage(){
       </section>
     </div>
   );
-};
+}
 
 export default HomePage;
