@@ -1,0 +1,128 @@
+
+body {
+
+    font-family: Arial, sans-serif;
+    background-color: #ffe6f2;
+    color: #a83279;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .navbar {
+    background-color: #ff99cc; 
+    color: white;
+    position: absolute;
+    top: 2vh;
+    width: 84vw;
+    display: flex;
+    justify-content: space-evenly;
+   
+  }
+  .navbar-list{
+    list-style: "none";
+    gap : 250px;
+    display: flex;
+  } 
+  .navbar-list li{
+   
+    display: inline;
+    
+  } 
+  
+  .hero {
+    padding:px 20px;
+  }
+  .logo {
+    height: 50px;  
+    width: auto;
+  }
+
+  .hero img{
+ 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    height: 600px; 
+    width: 100%;
+ 
+   
+  }
+  
+  .hero h1 {
+    color: #a83279;
+    font-size: 36px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+  }
+  
+  .shop-btn {
+    background-color: #ff66b2; 
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  
+  .shop-btn:hover {
+    background-color: #ff3385; 
+  }
+  
+
+  .featured {
+    padding: 30px;
+  }
+  
+  .featured h2 {
+    font-size: 28px;
+    color: #a83279;
+  }
+  
+  .flower-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .flower-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+  }
+  
+  .flower-card img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .flower-card h3 {
+    margin-top: 10px;
+    color: #a83279;
+  }
+  
+  .flower-card p {
+    color: #ff3385;
+    font-weight: bold;
+  }
+  
+  .footer {
+    background-color: #ff99cc;
+    color: white;
+    padding: 15px;
+    margin-top:500px;
+  }
+  
