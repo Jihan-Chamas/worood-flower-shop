@@ -5,9 +5,10 @@ body {
   margin: 0;
   padding: 0;
 }
-.container{
+.container {
   text-align: center;
 }
+
 .navbar-list {
   color: white;
   position: absolute;
@@ -26,8 +27,9 @@ body {
   color: rgb(249, 248, 242);
 }
 .hero {
+  height: 100vh;
   /* padding: 10px 20px; */
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
 }
 .logo {
   height: 50px;
@@ -59,11 +61,11 @@ body {
   border-radius: 5px;
 }
 .hero h1 {
-  bottom: 60px;
+  bottom: 0vh;
 }
 .hero p {
   font-size: 18px;
-  bottom: 25px;
+  bottom: -5vh;
   color: #ff3385;
 }
 
@@ -94,19 +96,39 @@ body {
 .flower-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 20px;
+  justify-content: flex-end;
 }
 
-.flower-card {
+.browse-flowers {
   background-color: rgb(249, 248, 242);
-  padding: 15px;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  width: 200px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5vh;
 }
 
+.flowers-state {
+  text-align: start;
+  width: 40%;
+}
+
+.browse-image-flowers {
+  display: grid; /* Set to grid layout */
+  grid-template-columns: repeat(3, 1fr); /* Creates 2 equal columns */
+  gap: 10px; /* Adds space between items */
+  width: 40%;
+}
+
+.browse-image-flowers img {
+  height: 200px; /* Reduced height */
+  width: 80%; /* Ensure the image spans the full width of the grid cell */
+  object-fit: cover;
+}
+
+/* 
 .flower-card img {
   width: 100%;
   border-radius: 5px;
@@ -120,8 +142,49 @@ body {
 .flower-card p {
   color: #ff3385;
   font-weight: bold;
+} */
+.flower-card {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
 }
 
+.flower-card img {
+  width: 100%;
+  height: max-content;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.flower-card h3 {
+  font-size: 14px;
+  margin: 8px 0;
+}
+
+.flower-card p {
+  font-size: 12px;
+}
+
+.shop-btn {
+  background-color: #ff4d6d;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+.shop-btn:hover {
+  background-color: #d73858;
+}
+.swiper-slide {
+  flex-shrink: none;
+}
 .footer {
   background-color: #ff3385;
   color: white;

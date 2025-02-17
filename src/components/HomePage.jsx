@@ -1,89 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./styling.css";
+import FlowerCarousel from "./FlowerCarousel";
 
 function HomePage() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://us-central1-worood-flower-shop.cloudfunctions.net/getProducts"
+      )
+      .then((response) => {
+        setProducts(response.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError("Failed to fetch products.");
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <div className="container">
-
       <header className="hero">
-        <img src="./src/images/sakura.gif" />
-        <h1>Welcome to Worod Flower Shop</h1>
+        <img src="./src/images/sakura.gif" alt="Hero" />
+        <h1>Welcome to Worood Flower Shop</h1>
         <p>Fresh flowers for every occasion</p>
       </header>
-
+      <div className="browse-flowers">
+        <div className="flowers-state">
+          <h1>Flowers, What the World Needs</h1>
+          <p>
+            Discover the beauty of nature with our handpicked collection of
+            flowers. Whether you're celebrating a special occasion or just
+            brightening up your day, we have the perfect blooms for you. Let our
+            vibrant selection bring joy and elegance to any moment. Start
+            exploring our curated floral arrangements now!
+          </p>
+          <button className="shop-btn">Browse</button>
+        </div>
+        <div className="browse-image-flowers">
+          {products.slice(0, 6).map((product) => (
+            <img src={product.image} alt={product.name} />
+          ))}
+        </div>
+      </div>
       <section className="featured">
         <h2>Our Products</h2>
-        <div className="flower-list">
-          <div className="flower-card">
-            <img src="./src/images/pink-roses.webp" alt="Rose Bouquet" />
-            <h3>Rose Bouquet</h3>
-            <p>$25.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img src="./src/images/tulip-roses.webp" alt="Tulip Delight" />
-            <h3>Tulip Delight</h3>
-            <p>$19.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img
-              src="./src/images/sunflower-roses.webp"
-              alt="Sunflower Charm"
-            />
-            <h3>Sunflower Charm</h3>
-            <p>$22.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img src="./src/images/orchid-roses.webp" alt="Orchid Elegance" />
-            <h3>Orchid Elegance</h3>
-            <p>$29.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img src="./src/images/valentine-roses.webp" alt="Daisy Fresh" />
-            <h3>Valentine's Bouquet</h3>
-            <p>$18.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img src="./src/images/flamengo-roses.webp" alt="Lily Love" />
-            <h3>Flamingo Love</h3>
-            <p>$24.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img src="./src/images/lilis-roses.webp" alt="Lilis flower" />
-            <h3>Lili Dream</h3>
-            <p>$26.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img src="./src/images/manuka-honey.webp" alt="Manuka Honey" />
-            <h3>Manuka Honey</h3>
-            <p>$40.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img
-              src="./src/images/orangeblossom-honey.jpeg"
-              alt="Orangeblossom Honey"
-            />
-            <h3>Orangeblossom Honey</h3>
-            <p>$21.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-          <div className="flower-card">
-            <img
-              src="./src/images/wildflowers-honey.webp"
-              alt="Wild Flowers Honey"
-            />
-            <h3>Wild Roses Honey</h3>
-            <p>$27.99</p>
-            <button className="shop-btn">Buy now</button>
-          </div>
-        </div>
+
+        {loading && <p>Loading products...</p>}
+        {error && <p className="error">{error}</p>}
+        <FlowerCarousel products={products} />
       </section>
     </div>
   );
