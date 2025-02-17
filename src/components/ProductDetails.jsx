@@ -42,6 +42,16 @@ const ProductDetails = () => {
       <p>
         <strong>Availability:</strong> {product.availability}
       </p>
+      <p>
+        <strong>origin:</strong> {product.origin}
+      </p>
+      <p>
+        <strong>color:</strong> {product.color}
+      </p>
+      <p>
+        <strong>category:</strong> {product.category}
+      </p>
+
       <button className="shop-btn">Buy now</button>
     </div>
   );

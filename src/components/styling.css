@@ -10,7 +10,7 @@ body {
 }
 
 .navbar-list {
-  color: white;
+  color: rgb(248, 15, 120);
   position: absolute;
   top: 2vh;
   width: 100vw;
@@ -24,7 +24,7 @@ body {
   text-decoration: underline;
   font-size: 20px;
   font-weight: bold;
-  color: rgb(249, 248, 242);
+  color: rgb(248, 15, 120);
 }
 .hero {
   height: 100vh;
@@ -192,8 +192,6 @@ body {
   margin-top: 500px;
 }
 
-/* All flowers components  */
-
 .all-flowers-container {
   display: grid;
   margin-top: 10vh;
@@ -217,4 +215,49 @@ body {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
+}
+.add-product {
+  background-color: #f8e2f0;
+  padding: 30px;
+  border-radius: 10px;
+  width: 70%;
+  margin: 30px auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.add-product h3 {
+  color: #d3006d; 
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.add-product label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #d3006d;
+}
+
+.add-product input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #d3006d;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.add-product button {
+  background-color: #ff66b2; 
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+}
+
+.add-product button:hover {
+  background-color: #ff3385; 
 }

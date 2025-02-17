@@ -23,6 +23,7 @@ function HomePage() {
       });
   }, []);
 
+
   return (
     <div className="container">
       <header className="hero">
