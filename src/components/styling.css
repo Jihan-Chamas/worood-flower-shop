@@ -116,15 +116,15 @@ body {
 }
 
 .browse-image-flowers {
-  display: grid; /* Set to grid layout */
-  grid-template-columns: repeat(3, 1fr); /* Creates 2 equal columns */
-  gap: 10px; /* Adds space between items */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
   width: 40%;
 }
 
 .browse-image-flowers img {
-  height: 200px; /* Reduced height */
-  width: 80%; /* Ensure the image spans the full width of the grid cell */
+  height: 200px;
+  width: 80%;
   object-fit: cover;
 }
 
@@ -190,4 +190,31 @@ body {
   color: white;
   padding: 15px;
   margin-top: 500px;
+}
+
+/* All flowers components  */
+
+.all-flowers-container {
+  display: grid;
+  margin-top: 10vh;
+  grid-template-columns: repeat(3, 1fr);
+  overflow: hidden;
+  gap: 15px;
+}
+
+.all-flowers-card img {
+  width: 80%;
+  height: max-content;
+}
+
+.all-flowers-card {
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  height: max-content;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
 }

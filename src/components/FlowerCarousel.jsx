@@ -4,7 +4,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
+import { Link } from "react-router-dom";
 const FlowerCarousel = ({ products }) => {
   return (
     <Swiper
@@ -12,7 +12,7 @@ const FlowerCarousel = ({ products }) => {
       navigation
       slidesPerView={4}
       // autoplay={{ delay: 3000 }}
-      pagination={false} // 👈 This removes the dots
+      pagination={false} 
     >
       {products.map((product) => (
         <SwiperSlide key={product.id}>
@@ -21,6 +21,9 @@ const FlowerCarousel = ({ products }) => {
             <h3>{product.name}</h3>
             <p>${product.price}</p>
             <button className="shop-btn">Buy now</button>
+            <Link to={`/product/${product.id}`}>
+              <button className="shop-btn">Show more</button>
+            </Link>
           </div>
         </SwiperSlide>
       ))}

@@ -6,6 +6,7 @@ import cors from "cors";
 
 admin.initializeApp();
 const app = express();
+const db = admin.firestore();
 
 app.use(cors({ origin: true }));
 
@@ -134,35 +135,116 @@ const flowersAndHoney = [
   },
 ];
 
-export const getProducts = functions.https.onRequest((req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(204).end();
-  }
-
-  res.setHeader("Content-Type", "application/json");
+app.get("/getProducts", (req, res) => {
   res.status(200).json(flowersAndHoney);
 });
 
-export const getProductById = functions.https.onRequest((req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(204).end();
+app.get("/getProductById", (req, res) => {
+  const id = Number(req.query.id); 
+  if (isNaN(id)) {
+    return res.status(400).json({ error: "Invalid ID format" });
   }
 
-  const id = parseInt(req.query.id);
   const product = flowersAndHoney.find((item) => item.id === id);
-
   if (!product) {
     return res.status(404).json({ message: "Product not found" });
   }
 
-  res.setHeader("Content-Type", "application/json");
   res.json(product);
 });
+
+// POST - Add a new product
+app.post("/addProduct", async (req, res) => {
+  const {
+    name,
+    price,
+    image,
+    description,
+    availability,
+    origin,
+    color,
+    category,
+  } = req.body;
+
+  if (
+    !name ||
+    !price ||
+    !image ||
+    !description ||
+    !availability ||
+    !origin ||
+    !color ||
+    !category
+  ) {
+    return res.status(400).send({ message: "Missing required fields" });
+  }
+
+  try {
+    const newProduct = {
+      name,
+      price,
+      image,
+      description,
+      availability,
+      origin,
+      color,
+      category,
+      createdAt: admin.firestore.FieldValue.serverTimestamp(),
+    };
+
+    const docRef = await db.collection("products").add(newProduct);
+    res
+      .status(201)
+      .send({ id: docRef.id, message: "Product added successfully" });
+  } catch (error) {
+    console.error("Error adding product: ", error);
+    res
+      .status(500)
+      .send({ message: "Error adding product", error: error.message });
+  }
+});
+
+// PUT - Update a product by ID
+app.put("/updateProduct", async (req, res) => {
+  const { id, name, price, image, description, availability, origin, color, category } = req.body;
+
+  if (!id) {
+    return res.status(400).send({ message: "ID is required to update the product" });
+  }
+
+  const productRef = db.collection("products").doc(id);
+
+  try {
+    // Check if the product exists
+    const doc = await productRef.get();
+    if (!doc.exists) {
+      return res.status(404).send({ message: "Product not found" });
+    }
+
+    // Prepare the update data
+    const updatedProduct = {
+      name: name || doc.data()?.name,
+      price: price || doc.data()?.price,
+      image: image || doc.data()?.image,
+      description: description || doc.data()?.description,
+      availability: availability || doc.data()?.availability,
+      origin: origin || doc.data()?.origin,
+      color: color || doc.data()?.color,
+      category: category || doc.data()?.category,
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),  // Add a timestamp for the update
+    };
+
+    // Update the product in Firestore
+    await productRef.update(updatedProduct);
+    res.status(200).send({ message: "Product updated successfully" });
+  } catch (error) {
+    console.error("Error updating product: ", error);
+    res.status(500).send({ message: "Error updating product", error: error.message });
+  }
+});
+
+
+
+
+
+export const api = functions.https.onRequest(app);

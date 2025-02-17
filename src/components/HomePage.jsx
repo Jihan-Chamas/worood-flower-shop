@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./styling.css";
 import FlowerCarousel from "./FlowerCarousel";
-
+import { Link } from "react-router-dom";
 function HomePage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ function HomePage() {
   useEffect(() => {
     axios
       .get(
-        "https://us-central1-worood-flower-shop.cloudfunctions.net/getProducts"
+        "https://us-central1-worood-flower-shop.cloudfunctions.net/api/getProducts"
       )
       .then((response) => {
         setProducts(response.data);
@@ -40,7 +40,9 @@ function HomePage() {
             vibrant selection bring joy and elegance to any moment. Start
             exploring our curated floral arrangements now!
           </p>
-          <button className="shop-btn">Browse</button>
+          <Link to="./allFlowers">
+            <button className="shop-btn">Browse</button>
+          </Link >
         </div>
         <div className="browse-image-flowers">
           {products.slice(0, 6).map((product) => (
