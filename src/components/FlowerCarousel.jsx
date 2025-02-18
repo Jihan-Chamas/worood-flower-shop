@@ -6,12 +6,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Link } from "react-router-dom";
 const FlowerCarousel = ({ products }) => {
+  console.log("products",products);
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
       navigation
       slidesPerView={4}
-      // autoplay={{ delay: 3000 }}
       pagination={false} 
     >
       {products.map((product) => (

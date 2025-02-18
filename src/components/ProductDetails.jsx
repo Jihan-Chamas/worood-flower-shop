@@ -6,12 +6,12 @@ const ProductDetails = () => {
   const { id } = useParams(); // This will give you the product id from the URL
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
-
+console.log(id)
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://us-central1-worood-flower-shop.cloudfunctions.net/api/getProductById?id=${id}`
+          `https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop/${id}.json`
         );
         setProduct(response.data);
       } catch (err) {

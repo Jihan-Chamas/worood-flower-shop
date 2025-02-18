@@ -11,10 +11,16 @@ function HomePage() {
   useEffect(() => {
     axios
       .get(
-        "https://us-central1-worood-flower-shop.cloudfunctions.net/api/getProducts"
+        "https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop.json"
       )
       .then((response) => {
-        setProducts(response.data);
+        const productsArray = Object.entries(response.data).map(
+          ([id, product]) => ({
+            id,
+            ...product,
+          })
+        );
+        setProducts(productsArray);
         setLoading(false);
       })
       .catch((err) => {
@@ -22,7 +28,6 @@ function HomePage() {
         setLoading(false);
       });
   }, []);
-
 
   return (
     <div className="container">
@@ -43,10 +48,10 @@ function HomePage() {
           </p>
           <Link to="./allFlowers">
             <button className="shop-btn">Browse</button>
-          </Link >
+          </Link>
         </div>
         <div className="browse-image-flowers">
-          {products.slice(0, 6).map((product) => (
+          {products.map((product) => (
             <img src={product.image} alt={product.name} />
           ))}
         </div>

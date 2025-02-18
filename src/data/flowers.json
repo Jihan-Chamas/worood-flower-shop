@@ -1,6 +1,5 @@
 [
     {
-      "id": 1,
       "name": "Rose Bouquet",
       "price": 25.99,
       "image": "./src/images/pink-roses.webp",
@@ -11,7 +10,6 @@
       "availability": "In Stock"
     },
     {
-      "id": 2,
       "name": "Tulip Delight",
       "price": 19.99,
       "image": "./src/images/tulip-roses.webp",
@@ -22,7 +20,6 @@
       "availability": "Limited Stock"
     },
     {
-      "id": 3,
       "name": "Sunflower Charm",
       "price": 22.99,
       "image": "./src/images/sunflower-roses.webp",
@@ -33,7 +30,6 @@
       "availability": "Out of Stock"
     },
     {
-      "id": 4,
       "name": "Orchid Elegance",
       "price": 29.99,
       "image": "./src/images/orchid-roses.webp",
@@ -44,7 +40,6 @@
       "availability": "In Stock"
     },
     {
-      "id": 5,
       "name": "Valentine's Bouquet",
       "price": 18.99,
       "image": "./src/images/valentine-roses.webp",
@@ -55,7 +50,6 @@
       "availability": "In Stock"
     },
     {
-      "id": 6,
       "name": "Flamingo Love",
       "price": 24.99,
       "image": "./src/images/flamengo-roses.webp",
@@ -66,7 +60,6 @@
       "availability": "Limited Stock"
     },
     {
-      "id": 7,
       "name": "Lili Dream",
       "price": 26.99,
       "image": "./src/images/lilis-roses.webp",
@@ -77,7 +70,6 @@
       "availability": "In Stock"
     },
     {
-      "id": 8,
       "name": "Manuka Honey",
       "price": 40.99,
       "image": "./src/images/manuka-honey.webp",
@@ -88,7 +80,6 @@
       "availability": "In Stock"
     },
     {
-      "id": 9,
       "name": "Orange Blossom Honey",
       "price": 21.99,
       "image": "./src/images/orangeblossom-honey.jpeg",
@@ -99,7 +90,6 @@
       "availability": "Limited Stock"
     },
     {
-      "id": 10,
       "name": "Wild Flowers Honey",
       "price": 27.99,
       "image": "./src/images/wildflowers-honey.webp",

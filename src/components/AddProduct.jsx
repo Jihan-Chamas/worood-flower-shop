@@ -31,7 +31,7 @@ function AddProduct({ ProductAdded }) {
 
     axios
       .post(
-        `https://us-central1-worood-flower-shop.cloudfunctions.net/api/addProduct`,
+        `https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop.json`,
         newProduct
       )
       .then((response) => {
