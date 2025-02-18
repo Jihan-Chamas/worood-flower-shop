@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-function AddProduct({ProductAdded}) {
+function AddProduct({ ProductAdded }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
@@ -18,8 +18,7 @@ function AddProduct({ProductAdded}) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newProduct = { 
-      id: uuidv4(),
+    const newProduct = {
       name,
       image,
       description,
@@ -27,19 +26,20 @@ function AddProduct({ProductAdded}) {
       origin,
       color,
       category,
-      availability
+      availability,
     };
 
-    axios.post(
-      `https://us-central1-worood-flower-shop.cloudfunctions.net/api/addProduct`, 
-      newProduct
-    )
-    .then((response) => {
-      console.log("The product was added successfully:", response.data);
-      navigate("/");
-      ProductAdded(newProduct); 
-    })
-    .catch((error) => console.log(error));
+    axios
+      .post(
+        `https://us-central1-worood-flower-shop.cloudfunctions.net/api/addProduct`,
+        newProduct
+      )
+      .then((response) => {
+        console.log("The product was added successfully:", response.data);
+        ProductAdded(response.data);
+        navigate("/");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -47,7 +47,7 @@ function AddProduct({ProductAdded}) {
       <h3>Add a New Product!</h3>
       <form onSubmit={handleSubmit}>
         <label>Product Name</label>
-        <input 
+        <input
           type="text"
           name="name"
           value={name}
@@ -126,7 +126,7 @@ function AddProduct({ProductAdded}) {
         </select>
 
         <button type="submit">Add</button>
-      </form> 
+      </form>
     </div>
   );
 }

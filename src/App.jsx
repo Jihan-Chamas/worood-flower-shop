@@ -15,7 +15,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   const addProduct = (newProduct) => {
-    setProducts([...products, newProduct]); // Update products state
+    setProducts((prevProducts) => [...prevProducts, newProduct]); 
   };
 
   return (
