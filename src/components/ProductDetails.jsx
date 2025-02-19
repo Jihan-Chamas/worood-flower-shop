@@ -55,7 +55,7 @@ console.log(id)
         <Link to ="/updateProduct">
       <button className="shop-btn">update</button>
       </Link>
-      <Link to ="/deletproduct">
+      <Link to ="/deleteproduct">
       <button className="shop-btn">Delete</button>
       </Link>
     </div>

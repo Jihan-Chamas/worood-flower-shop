@@ -11,7 +11,7 @@ import AllFlowers from './components/AllFlowers';
 import ProductDetails from './components/ProductDetails';
 import AddProduct from './components/AddProduct';
 import UpdateProduct from './components/UpdateProduct';
-import DeleteProduct from './components/DeletProduct';
+import DeleteProduct from './components/DeleteProduct';
 
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <Route path="/allFlowers" element={<AllFlowers />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/addProduct" element={<AddProduct ProductAdded={addProduct}/>} />
-        <Route path="/updateProduct" element={<UpdateProduct/>} />
+        <Route path="/updateProduct" element={<UpdateProduct />} />
         <Route path="/deleteproduct" element={<DeleteProduct/>} />
       </Routes>
       <Footer />
