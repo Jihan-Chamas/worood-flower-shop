@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const { id } = useParams(); // This will give you the product id from the URL
   const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
-console.log(id)
+  //console.log(id)
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -52,10 +52,10 @@ console.log(id)
       <p>
         <strong>category:</strong> {product.category}
       </p>
-        <Link to ="/updateProduct">
+        <Link to ={`/updateproduct/${id}`}>
       <button className="shop-btn">update</button>
       </Link>
-      <Link to ="/deleteproduct">
+      <Link to={`/deleteproduct/${id}`}>
       <button className="shop-btn">Delete</button>
       </Link>
     </div>
