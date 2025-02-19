@@ -10,6 +10,9 @@ import { Routes, Route } from 'react-router-dom';
 import AllFlowers from './components/AllFlowers';
 import ProductDetails from './components/ProductDetails';
 import AddProduct from './components/AddProduct';
+import UpdateProduct from './components/UpdateProduct';
+import DeleteProduct from './components/DeletProduct';
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -28,6 +31,8 @@ function App() {
         <Route path="/allFlowers" element={<AllFlowers />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/addProduct" element={<AddProduct ProductAdded={addProduct}/>} />
+        <Route path="/updateProduct" element={<UpdateProduct/>} />
+        <Route path="/deleteproduct" element={<DeleteProduct/>} />
       </Routes>
       <Footer />
     </>

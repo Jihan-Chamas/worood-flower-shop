@@ -35,7 +35,7 @@ function AddProduct({ ProductAdded }) {
         newProduct
       )
       .then((response) => {
-        console.log("The product was added successfully:", response.data);
+       // console.log("The product was added successfully:", response.data);
         ProductAdded(response.data);
         navigate("/");
       })

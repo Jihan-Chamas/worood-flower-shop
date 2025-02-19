@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const { id } = useParams(); // This will give you the product id from the URL
@@ -51,8 +52,12 @@ console.log(id)
       <p>
         <strong>category:</strong> {product.category}
       </p>
-
-      <button className="shop-btn">Buy now</button>
+        <Link to ="/updateProduct">
+      <button className="shop-btn">update</button>
+      </Link>
+      <Link to ="/deletproduct">
+      <button className="shop-btn">Delete</button>
+      </Link>
     </div>
   );
 };

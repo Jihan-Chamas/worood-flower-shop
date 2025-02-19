@@ -17,7 +17,7 @@ function AllFlowers() {
             ...product, // product data (name, description, etc.)
           })
         );
-        console.log("productssss", productsArray);
+       // console.log("productssss", productsArray);
         setProducts(productsArray);
         setLoading(false);
       })
