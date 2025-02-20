@@ -194,7 +194,7 @@ body {
 
 .flower-card img {
   width: 100%;
-  height: max-content;
+  height: 300px;
   border-radius: 6px;
   object-fit: cover;
 }
@@ -206,6 +206,35 @@ body {
 
 .flower-card p {
   font-size: 12px;
+}
+
+.birthday-container{
+  display: flex;
+  background-color: rgb(230, 206, 248);
+  max-width: 90%;
+  margin: auto;
+  background: #fde5fd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+.birthday-container img{
+  overflow-clip-margin: content-box;
+  width: 400px;
+  margin-right: 20px;
+}
+.birthday-container h2{
+  margin-top: 100px;
+  text-align: center;
+  color: #d63384;
+}
+.sunflower img{
+   width:300px;
+  height:300px;
+}
+.highlight {
+  color: #fa1f70;
+  font-weight: bold;
 }
 
 .shop-btn {

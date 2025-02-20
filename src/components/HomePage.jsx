@@ -69,9 +69,9 @@ function HomePage() {
           </Link>
         </div>
         <div className="browse-image-flowers">
-          {products.map((product) => (
-            <img src={product.image} alt={product.name} />
-          ))}
+          <img src="./src/images/d2e81712760de144fd0459138cae8e34.jpg"/>
+          <img src="./src/images/167d6a64f9e14bac9f032f14468d4f4d.jpg"/>
+          <img src="./src/images/honey-stock.jpg"/>
         </div>
       </div>
       <section className="featured">
@@ -81,6 +81,25 @@ function HomePage() {
         {error && <p className="error">{error}</p>}
         <FlowerCarousel products={products} />
       </section>
+      <hr />
+      <div class="birthday-container">
+        <img src="./src/images/birthday.jpg"/>
+       
+        <p>
+        <h2>🎉 Make Their Birthday Extra Special! 🎁</h2>
+          Surprise your loved one with a vibrant bouquet of fresh flowers,
+           guaranteed to bring a big, beaming smile to their face! 🌸💖 Each birthday 
+           bouquet is expertly arranged and carefully packaged by our skilled florists,
+            ensuring a delightful gift full of love and joy.Want to add a personal touch? Pair the bouquet with a heartfelt birthday card,
+             a delicious chocolate treat, or a fun, quirky mug—turning it into the perfect, personalized birthday surprise! 🎂🎈
+             </p>
+          
+      </div>
+      <div class="sunflower">
+        <hr/>
+        <h2 class="highlight">send us your pic and we will make you a sunflower</h2>
+      <img src="./src/images/mesunflower.jpeg" />
+      </div>
     </div>
   );
 }
