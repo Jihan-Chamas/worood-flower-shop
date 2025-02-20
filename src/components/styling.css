@@ -257,11 +257,6 @@ body {
   animation: blink 1s infinite;
 }
 
-
-
-
-
-
 .shop-btn {
   background-color: #ff4d6d;
   color: white;
@@ -366,4 +361,26 @@ body {
   height: 100vh;
   justify-content: center;
   margin-top: 20vh;
+}
+.about-us {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  background: #fffaf0; /* Soft floral background */
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-us h1 {
+  color: #d63384; /* Elegant pink */
+  font-size: 32px;
+  margin-top: 150px;
+}
+
+.about-us p {
+  color: #555;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 15px;
 }

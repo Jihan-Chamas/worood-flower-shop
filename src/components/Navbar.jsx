@@ -10,6 +10,7 @@ function Navbar() {
   return (
     <div className="container">
       <div className="navbar-list">
+        
         <a href="/aboutus">About us</a>
         <Link to="./">
           <img className="logo-design" src={Logo} alt="" />
