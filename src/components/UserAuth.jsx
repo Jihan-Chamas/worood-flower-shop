@@ -64,17 +64,6 @@ const UserAuth = () => {
         );
 
         console.log("created user:", createdUser);
-
-        // add user to the database
-        const user = createdUser?.user;
-        const userRef = ref(database,"users/", + user.uid)
-        const result = await set(userRef,{
-          email: user.email,
-          isAdmin : true, // we added a user after creation as admin, so the user that we created now admin do not forget this is only for once if you keep this code here then every signed user will be admin
-        })
-
-        console.log("created user as admin:",result)
-
         alert("Account created successfully! You can now log in.");
       } else {
         await signInWithEmailAndPassword(email, password);
