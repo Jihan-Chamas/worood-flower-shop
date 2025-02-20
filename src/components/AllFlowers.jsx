@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 function AllFlowers() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,7 +31,9 @@ function AllFlowers() {
     <div className="all-flowers-container">
       {products.map((product) => (
         <div className="all-flowers-card">
+          <Link to={`/product/${product.id}`}>
           <img src={product.image} alt={product.name} />
+          </Link>
           <h3>{product.name}</h3>
         </div>
       ))}

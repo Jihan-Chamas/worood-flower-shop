@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
-} from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import "./styling.css";
 import {
   useCreateUserWithEmailAndPassword,
@@ -12,7 +7,6 @@ import {
   useAuthState,
 } from "react-firebase-hooks/auth";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set } from "firebase/database";
 
 // Firebase config
 const firebaseConfig = {
@@ -27,15 +21,12 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const database = getDatabase(app);
-
-console.log("database received from firebase website:", database);
 
 const UserAuth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-  console.log("Email:", email, "Password:", password);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
@@ -45,79 +36,52 @@ const UserAuth = () => {
 
   const handleAuth = async (event) => {
     event.preventDefault();
+    setErrorMessage(""); // Clear previous errors
 
     if (!email || !password) {
-      alert("Email and password are required.");
+      setErrorMessage("Email and password are required.");
       return;
     }
 
     if (password.length < 6) {
-      alert("Password must be at least 6 characters long.");
+      setErrorMessage("Password must be at least 6 characters long.");
       return;
     }
 
-    try {
-      if (isRegistering) {
-        const createdUser = await createUserWithEmailAndPassword(
-          email,
-          password
-        );
-
-        console.log("created user:", createdUser);
-        alert("Account created successfully! You can now log in.");
-      } else {
-        await signInWithEmailAndPassword(email, password);
-      }
-    } catch (error) {
-      console.error("Authentication Error:", error.message);
-
-      // Handling specific Firebase auth errors
-      switch (error.code) {
-        case "auth/invalid-email":
-          alert("Invalid email format.");
-          break;
-        case "auth/user-not-found":
-          alert("User not found. Please register first.");
-          break;
-        case "auth/wrong-password":
-          alert("Incorrect password. Please try again.");
-          break;
-        case "auth/email-already-in-use":
-          alert("This email is already registered. Try logging in.");
-          break;
-        default:
-          alert(error.message);
-      }
+    if (isRegistering) {
+      await createUserWithEmailAndPassword(email, password);
+    } else {
+      await signInWithEmailAndPassword(email, password);
     }
   };
 
   const handleLogout = async () => {
     try {
       await signOut(auth);
-      alert("Successfully logged out!");
     } catch (error) {
       console.error("Logout Error:", error.message);
-      alert("Failed to log out. Please try again.");
+      setErrorMessage("Failed to log out. Please try again.");
     }
   };
 
-  if (loading || loginLoading) return <p>Loading...</p>;
-  if (error || loginError) {
-    console.error("Firebase Error:", error?.message || loginError?.message);
-    return <p>Error: {error?.message || loginError?.message}</p>;
-  }
+  // Set error message based on Firebase hook errors
+  React.useEffect(() => {
+    if (error || loginError) {
+      setErrorMessage(error?.message || loginError?.message);
+    }
+  }, [error, loginError]);
 
   return (
     <div className="auth-container">
       {currentUser ? (
-        <div>
-          <p>Welcome, {currentUser.email}</p>
+        <div className="logout">
+          <h2>Welcome, {currentUser.email}</h2>
           <button onClick={handleLogout}>Log Out</button>
         </div>
       ) : (
         <div>
           <h2>{isRegistering ? "Register" : "Login"}</h2>
-          <form onSubmit={handleAuth}>
+          <form onSubmit={handleAuth} className="authentication">
             <input
               type="email"
               placeholder="Email"
@@ -130,12 +94,19 @@ const UserAuth = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button type="submit">
+
+            {/* Display error message below input fields */}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+
+            <button type="submit" disabled={loading || loginLoading}>
               {isRegistering ? "Register" : "Login"}
             </button>
           </form>
 
-          <p onClick={() => setIsRegistering(!isRegistering)}>
+          <p
+            onClick={() => setIsRegistering(!isRegistering)}
+            className="account"
+          >
             {isRegistering
               ? "Already have an account? Login"
               : "Don't have an account? Register"}
@@ -145,4 +116,5 @@ const UserAuth = () => {
     </div>
   );
 };
+
 export default UserAuth;

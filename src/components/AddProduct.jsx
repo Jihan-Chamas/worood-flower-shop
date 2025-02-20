@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { v4 as uuidv4 } from "uuid";
+import { getAuth } from "firebase/auth"; // Import Firebase Auth
 
 function AddProduct({ ProductAdded }) {
   const [name, setName] = useState("");
@@ -12,8 +12,17 @@ function AddProduct({ ProductAdded }) {
   const [color, setColor] = useState("");
   const [category, setCategory] = useState("");
   const [availability, setAvailability] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // New state for authentication
 
   const navigate = useNavigate();
+
+  // Check if the user is logged in when the component mounts
+  useEffect(() => {
+    const auth = getAuth();
+    auth.onAuthStateChanged((user) => {
+      setIsAuthenticated(!!user); // If the user is logged in, set isAuthenticated to true
+    });
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +44,6 @@ function AddProduct({ ProductAdded }) {
         newProduct
       )
       .then((response) => {
-       // console.log("The product was added successfully:", response.data);
         ProductAdded(response.data);
         navigate("/");
       })
@@ -45,6 +53,8 @@ function AddProduct({ ProductAdded }) {
   return (
     <div className="add-product">
       <h3>Add a New Product!</h3>
+      {!isAuthenticated && <p className="not-auth">You must be logged in to add a product.</p>}{" "}
+      {/* Display message if not authenticated */}
       <form onSubmit={handleSubmit}>
         <label>Product Name</label>
         <input
@@ -125,7 +135,8 @@ function AddProduct({ ProductAdded }) {
           <option value="Limited Stock">Limited Stock</option>
         </select>
 
-        <button type="submit">Add</button>
+        {/* Conditionally render the Add Product button only if logged in */}
+        {isAuthenticated && <button type="submit">Add</button>}
       </form>
     </div>
   );
