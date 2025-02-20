@@ -83,10 +83,10 @@ function HomePage() {
       </section>
       <hr />
       <div class="birthday-container">
-        <img src="./src/images/birthday.jpg"/>
+      <img src="./src/images/birthday.jpg"/>
        
-        <p>
-        <h2>🎉 Make Their Birthday Extra Special! 🎁</h2>
+        <p >
+        <h2 class="shining-text">🎉 Make Their Birthday Extra Special! 🎁</h2>
           Surprise your loved one with a vibrant bouquet of fresh flowers,
            guaranteed to bring a big, beaming smile to their face! 🌸💖 Each birthday 
            bouquet is expertly arranged and carefully packaged by our skilled florists,
@@ -94,11 +94,21 @@ function HomePage() {
              a delicious chocolate treat, or a fun, quirky mug—turning it into the perfect, personalized birthday surprise! 🎂🎈
              </p>
           
-      </div>
-      <div class="sunflower">
-        <hr/>
-        <h2 class="highlight">send us your pic and we will make you a sunflower</h2>
-      <img src="./src/images/mesunflower.jpeg" />
+       </div>
+       <hr/>
+       <div class="sunflower"> 
+       <label>Send us your image !!
+          <input type="url"
+          placeholder="Enter your image url!"/> 
+          </label> 
+        <h2 class="shining-text">send us your image and we will make you a sunflower</h2>
+      
+        <img src="./src/images/george.jpeg"/>
+        <img src="./src/images/david.jpeg"/>
+        <img src="./src/images/victor.jpeg"/>
+        <img src="./src/images/kamran.jpeg"/>
+        <img src="./src/images/leen.jpeg"/>
+        <img src="./src/images/jihan.jpeg"/>
       </div>
     </div>
   );

@@ -20,7 +20,6 @@ const FlowerCarousel = ({ products }) => {
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>${product.price}</p>
-            <button className="shop-btn">Buy now</button>
             <Link to={`/product/${product.id}`}>
               <button className="shop-btn">Show more</button>
             </Link>
