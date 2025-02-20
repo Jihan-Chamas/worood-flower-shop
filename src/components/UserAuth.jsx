@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { getAuth, signOut } from "firebase/auth";
-import "./styling.css";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import "./styling.css"
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,

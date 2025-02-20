@@ -12,12 +12,14 @@ function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="navbar-container">
+    <div className="container">
       <div className="navbar">
+        {/* Hamburger Icon */}
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} size="2x" />
         </button>
 
+        {/* Navbar List */}
         <div className={`navbar-list ${menuOpen ? "open" : ""}`}>
           <a href="/aboutus" onClick={closeMenu}>
             About us
@@ -36,5 +38,6 @@ function Navbar() {
     </div>
   );
 }
+
 
 export default Navbar;
