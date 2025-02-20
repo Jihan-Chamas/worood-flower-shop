@@ -1,5 +1,5 @@
 
-
+import "./styling.css"
 function AboutUs(){
 
     return(

@@ -32,10 +32,28 @@ function HomePage() {
   return (
     <div className="container">
       <header className="hero">
-        <img src="./src/images/sakura.gif" alt="Hero" />
-        <h1>Welcome to Worood Flower Shop</h1>
-        <p>Fresh flowers for every occasion</p>
+        <img
+          src="https://www.flowershopsnetwork.co.uk/cdn/shop/files/Flowershopsnetwork_homepage_banner.webp?v=1729505888&width=2000"
+          alt="Hero"
+        />
       </header>
+      <div className="under-hero">
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0599/5816/5579/files/fd_icon_mon_sat.png?v=1738939295" />
+          <p>Free Delivery Nationwide</p>
+        </div>
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0599/5816/5579/files/fd_icon_same_day.png?v=1738939295" />
+          <p>Same Day Delivery before 2pm</p>
+        </div>
+        <div>
+          <img
+            style={{height:40}}
+            src="https://cdn.shopify.com/s/files/1/0806/6465/8257/files/reviews.png?v=1739930829"
+          />
+          <p>★★★★⯪ (4.5/5) Reviews</p>
+        </div>
+      </div>
       <div className="browse-flowers">
         <div className="flowers-state">
           <h1>Flowers, What the World Needs</h1>

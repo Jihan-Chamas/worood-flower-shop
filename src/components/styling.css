@@ -1,3 +1,8 @@
+:root {
+  margin-left: 7vh;
+  margin-right: 7vh;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: rgb(249, 248, 242);
@@ -5,43 +10,78 @@ body {
   margin: 0;
   padding: 0;
 }
-.container {
+.footer-container {
   text-align: center;
 }
-
+.logo-design{
+  height:120px;
+  width: 270px;
+  background-color: transparent;
+}
 .navbar-list {
   color: rgb(248, 15, 120);
   position: absolute;
-  top: 2vh;
-  width: 100vw;
+  top: 0vh;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 100vw;
+  align-items: center;
+  justify-content: space-evenly;
+  text-transform: uppercase;
+
 }
 
 .navbar-list a {
-  text-decoration: underline;
+  text-decoration: none;
+  letter-spacing: 1px;
   font-size: 20px;
-  font-weight: bold;
+  /* font-weight: bold; */
   color: rgb(248, 15, 120);
 }
-.hero {
-  height: 100vh;
-  /* padding: 10px 20px; */
-  /* margin-bottom: 5vh; */
+.navbar-list a:hover {
+  color: #a83279;
+  
 }
+.navbar-list a::before {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0%;
+  background-color: #a83279;
+  position: absolute;
+  transition: all ease-in-out 250ms;
+  margin: 0 0;
+;
+}
+.navbar-list a:hover::before {
+  width: 7vw;
+}
+
 .logo {
   height: 50px;
   width: auto;
 }
 
+.under-hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1vh;
+  background-color: #f9e6ec;
+  padding: 20px;
+}
+.under-hero p{
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .hero img {
-  background-size: cover;
+  /* background-size: cover; */
   display: block;
   background-position: center;
   background-repeat: no-repeat;
-  height: 800px;
+  margin-top: 15vh;
+  /* height: 800px; */
   width: 100%;
 }
 
@@ -101,7 +141,7 @@ body {
 }
 
 .browse-flowers {
-  background-color: rgb(249, 248, 242);
+  background-color: #f9f8f2;
   padding: 25px;
   border-radius: 10px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -189,7 +229,6 @@ body {
   background-color: #ff3385;
   color: white;
   padding: 15px;
-  margin-top: 500px;
 }
 
 .all-flowers-container {
@@ -221,7 +260,7 @@ body {
   padding: 30px;
   border-radius: 10px;
   width: 70%;
-  margin: 30px auto;
+  margin: 20vh auto;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -260,4 +299,17 @@ body {
 
 .add-product button:hover {
   background-color: #ff3385; 
+}
+
+.about-us{
+  height: 100vh;
+  margin: 50vh auto;
+}
+/* Authentication component */
+
+.auth-container {
+  display: block;
+  height: 100vh;
+  justify-content: center;
+  margin-top: 20vh;
 }
