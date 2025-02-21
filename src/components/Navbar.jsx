@@ -21,13 +21,13 @@ function Navbar() {
 
         {/* Navbar List */}
         <div className={`navbar-list ${menuOpen ? "open" : ""}`}>
-          <a href="/aboutus" onClick={closeMenu}>
+          <a href="/AboutUs" onClick={closeMenu}>
             About us
           </a>
           <Link to="./" onClick={closeMenu}>
             <img className="logo-design" src={Logo} alt="Worood Logo" />
           </Link>
-          <a href="/addProduct" onClick={closeMenu}>
+          <a href="/AddProduct" onClick={closeMenu}>
             Add Flowers
           </a>
           <Link to="./user" onClick={closeMenu}>

@@ -26,11 +26,11 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/allFlowers" element={<AllFlowers />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route
-          path="/addProduct"
+          path="/AddProduct"
           element={<AddProduct ProductAdded={addProduct} />}
         />
         <Route path="/updateProduct/:id" element={<UpdateProduct />} />

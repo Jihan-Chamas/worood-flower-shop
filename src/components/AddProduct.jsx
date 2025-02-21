@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { getAuth } from "firebase/auth"; 
+import { getAuth } from "firebase/auth";
 
 function AddProduct({ ProductAdded }) {
   const [name, setName] = useState("");
@@ -12,7 +12,7 @@ function AddProduct({ ProductAdded }) {
   const [color, setColor] = useState("");
   const [category, setCategory] = useState("");
   const [availability, setAvailability] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false); 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ function AddProduct({ ProductAdded }) {
 
     axios
       .post(
-        `https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop.json`,
+        `https://app.netlify.com/sites/worood-flower-shop/overview`,
         newProduct
       )
       .then((response) => {
@@ -52,7 +52,9 @@ function AddProduct({ ProductAdded }) {
   return (
     <div className="add-product">
       <h3>Add a New Product!</h3>
-      {!isAuthenticated && <p className="not-auth">You must be logged in to add a product.</p>}{" "}
+      {!isAuthenticated && (
+        <p className="not-auth">You must be logged in to add a product.</p>
+      )}{" "}
       {/* Display message if not authenticated */}
       <form onSubmit={handleSubmit}>
         <label>Product Name</label>
