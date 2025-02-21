@@ -1,32 +1,32 @@
-🌸 Worood Flower Shop
+# 🌸 Worood Flower Shop
 
-A web-based flower shop built with React, Firebase Realtime Database, and React Router.
+A web-based flower shop built with **React**, **Firebase Realtime Database**, and **React Router**.
 
-🚀 Features
+---
 
-🌼 Browse all flowers
+## 🚀 Features
 
-🔍 View product details
+- 🌼 Browse all flowers
+- 🔍 View product details
+- ➕ Add new products (Admin only)
+- ✏️ Update existing products (Admin only)
+- ❌ Delete products (Admin only)
+- 🔐 User authentication with Firebase
 
-➕ Add new products (Admin)
+---
 
-✏️ Update existing products (Admin)
+## 🛠️ Technologies Used
 
-❌ Delete products (Admin)
+- **Frontend:** React, React Router, React Firebase Hooks
+- **Backend:** Firebase Realtime Database (REST API)
+- **Styling:** CSS
+- **Package Manager:** npm
 
-🔐 User authentication with Firebase
+---
 
-🛠️ Technologies Used
+## 📂 Folder Structure
 
-Frontend: React, React Router, React Firebase Hooks
-
-Backend: Firebase Realtime Database (REST API)
-
-Styling: CSS
-
-Package Manager: npm
-
-📂 Folder Structure
+```
 src/
 ├── assets/          # Static assets (images, logos, etc.)
 ├── components/      # UI components
@@ -49,20 +49,32 @@ src/
 ├── App.jsx          # Main application component
 ├── main.jsx         # React entry point
 └── index.html       # Main HTML file
+```
 
-🔧 Setup Instructions
+---
 
-1️⃣ Clone the Repository
+## 🔧 Setup Instructions
+
+### 1️⃣ Clone the Repository
+
+```sh
 git clone https://github.com/your-username/worood-flower-shop.git
 cd worood-flower-shop
+```
 
-2️⃣ Install Dependencies
+### 2️⃣ Install Dependencies
+
+```sh
 npm install
+```
 
-3️⃣ Configure Firebase
-Create a Firebase Project at Firebase Console.
-Enable Authentication (Email/Password) & Realtime Database.
-Replace Firebase credentials in src/config/firebase.js:
+### 3️⃣ Configure Firebase
+
+- Create a **Firebase Project** at [Firebase Console](https://console.firebase.google.com/).
+- Enable **Authentication** (Email/Password) & **Realtime Database**.
+- Replace Firebase credentials in `src/config/firebase.js`:
+
+```javascript
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -76,32 +88,41 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
+```
 
-4️⃣ Run the Development Server
+### 4️⃣ Run the Development Server
+
+```sh
 npm run dev
+```
 
-The app should be running at http://localhost:5173 (if using Vite).
+The app should be running at **`http://localhost:5173`** (if using Vite).
 
-✅ Usage
+---
 
-Guests can browse flowers but cannot add/update/delete.
+## ✅ Usage
 
-Logged-in Users can manage products.
+- **Guests** can browse flowers but cannot add/update/delete.
+- **Logged-in Users** can manage products.
+- Click on the **"User"** page to sign in or register.
 
-Click on the "User" page to sign in or register.
+---
 
-📌 Future Improvements
+## 📌 Future Improvements
 
-🌍 Multi-language support
+- 🌍 Multi-language support
+- 🛒 Shopping cart functionality
+- 📦 Order management system
 
-🛒 Shopping cart functionality
+---
 
-📦 Order management system
-
-🤝 Contributing
+## 🤝 Contributing
 
 Pull requests are welcome! Open an issue for suggestions or bug reports.
 
-📜 License
+---
+
+## 📜 License
 
 MIT License © 2025 Worood Flower Shop
+
