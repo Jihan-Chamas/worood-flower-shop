@@ -39,7 +39,7 @@ function AddProduct({ ProductAdded }) {
 
     axios
       .post(
-        `https://app.netlify.com/sites/worood-flower-shop/overview`,
+        `https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop.json`,
         newProduct
       )
       .then((response) => {

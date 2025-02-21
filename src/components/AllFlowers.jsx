@@ -8,7 +8,7 @@ function AllFlowers() {
   useEffect(() => {
     axios
       .get(
-        "https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop.json"
+        "https://worood-flower-shop-6fd48-default-rtdb.europe-west1.firebasedatabase.app/worood-flower-shop"
       )
       .then((response) => {
         const productsArray = Object.entries(response.data).map(
@@ -17,7 +17,7 @@ function AllFlowers() {
             ...product, // product data (name, description, etc.)
           })
         );
-       // console.log("productssss", productsArray);
+        // console.log("productssss", productsArray);
         setProducts(productsArray);
         setLoading(false);
       })
