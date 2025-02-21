@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { getAuth } from "firebase/auth"; // Import Firebase Auth
+import { getAuth } from "firebase/auth"; 
 
 function AddProduct({ ProductAdded }) {
   const [name, setName] = useState("");
@@ -12,15 +12,14 @@ function AddProduct({ ProductAdded }) {
   const [color, setColor] = useState("");
   const [category, setCategory] = useState("");
   const [availability, setAvailability] = useState("");
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // New state for authentication
+  const [isAuthenticated, setIsAuthenticated] = useState(false); 
 
   const navigate = useNavigate();
 
-  // Check if the user is logged in when the component mounts
   useEffect(() => {
     const auth = getAuth();
     auth.onAuthStateChanged((user) => {
-      setIsAuthenticated(!!user); // If the user is logged in, set isAuthenticated to true
+      setIsAuthenticated(!!user);
     });
   }, []);
 

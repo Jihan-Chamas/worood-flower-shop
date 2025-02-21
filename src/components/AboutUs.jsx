@@ -2,11 +2,16 @@ import "./styling.css";
 function AboutUs() {
   return (
     <div className="about-us">
-
       <p>
-        <strong>Welcome to Worood Flower Shop.</strong>We believe that sending
-        flowers is the best way to show you care and bring a smile to someone's
-        face!
+        Welcome to <strong>Worood Flower Store</strong>, where passion meets
+        elegance. <br /> We are <strong>Jihan</strong> and <strong>Leen</strong>
+        , two aspiring developers currently honing our skills at the{" "}
+        <strong>Ironhack WebDev Full-Stack Bootcamp</strong>. This project is a
+        reflection of our love for both technology and nature.
+      </p>
+      <p>
+        We believe that sending flowers is the best way to show you care and
+        bring a smile to someone's face!
       </p>
       <p>
         Delivering happiness is at the core of our mission. As an award-winning

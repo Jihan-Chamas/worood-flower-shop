@@ -3,9 +3,16 @@ import axios from "axios";
 import "./styling.css";
 import FlowerCarousel from "./FlowerCarousel";
 import { Link } from "react-router-dom";
-
-
-
+import George from "/src/images/george.jpeg";
+import david from "/src/images/david.jpeg";
+import victor from "/src/images/victor.jpeg";
+import kamran from "/src/images/kamran.jpeg";
+import leen from "/src/images/leen.jpeg";
+import jihan from "/src/images/jihan.jpeg";
+import one from "/src/images/d2e81712760de144fd0459138cae8e34.jpg";
+import two from "/src/images/167d6a64f9e14bac9f032f14468d4f4d.jpg";
+import three from "/src/images/honey-stock.jpg";
+import dabdoob from "/src/images/birthday.jpg";
 function HomePage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -74,9 +81,9 @@ function HomePage() {
           </Link>
         </div>
         <div className="browse-image-flowers">
-          <img src="./src/images/d2e81712760de144fd0459138cae8e34.jpg" />
-          <img src="./src/images/167d6a64f9e14bac9f032f14468d4f4d.jpg" />
-          <img src="./src/images/honey-stock.jpg" />
+          <img src={one} />
+          <img src={two} />
+          <img src={three} />
         </div>
       </div>
       <section className="featured">
@@ -87,9 +94,11 @@ function HomePage() {
         <FlowerCarousel products={products} />
       </section>
       <div className="birthday-container">
-        <img src="./src/images/birthday.jpg" />
+        <img src={dabdoob} />
         <div>
-          <h2>🎉 Make Their Birthday Extra Special! 🎁</h2>
+          <h2 className="shining-text">
+            🎉 Make Their Birthday Extra Special! 🎁
+          </h2>
           <p>
             Surprise your loved one with a vibrant bouquet of fresh flowers,
             guaranteed to bring a big, beaming smile to their face! 🌸💖 Each
@@ -103,10 +112,21 @@ function HomePage() {
         </div>
       </div>
       <div className="sunflower">
-        <h2 className="highlight">
-          send us your pic and we will make you a sunflower
+        <label>
+          Send us your image !!
+          <input type="url" placeholder="Enter your image url!" />
+        </label>
+        <h2 className="shining-text">
+          send us your image and we will make you a sunflower
         </h2>
-        <img src="./src/images/mesunflower.jpeg" />
+        <div className="sunflower-imgs">
+          <img src={George} />
+          <img src={victor} />
+          <img src={leen} />
+          <img src={kamran} />
+          <img src={jihan} />
+          <img src={david} />
+        </div>
       </div>
     </div>
   );
